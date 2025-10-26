@@ -1,35 +1,60 @@
-.navbar {
-  flex-shrink: 0;
+.menuButton {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 101;
   background-color: #1c1c1c;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 10px rgba(255, 204, 0, 0.2);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  color: #ffcc00;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-/* Logo */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 250px;
+  height: 100%;
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 2px 0 10px rgba(255, 204, 0, 0.2);
+  transition: left 0.3s ease;
+  z-index: 102;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.closeButton {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffcc00;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
 .logo {
   font-size: 1.8rem;
-  color: #ffffffdc;
   font-weight: bold;
+  margin-bottom: 2rem;
+  color: #ffffffdc;
+  text-align: center;
 }
 
-/* Container da busca */
-.searchContainer {
-  position: relative;
-  width: 230px;
-  margin-top: 0.5rem;
-}
-
-/* Campo de busca */
 .searchInput {
-  width: 90%;
-  padding: 0.5rem 2.5rem 0.5rem 0.8rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
   border: none;
   outline: none;
@@ -39,49 +64,20 @@
   transition: background-color 0.3s ease;
 }
 
-.searchInput:focus {
-  background-color: #3a3a3a;
-}
-
-/* Placeholder */
 .searchInput::placeholder {
   color: #aaa;
 }
 
-/* Ícone de busca */
-.searchIcon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  font-size: 1.2rem;
-  color: #ffcc00;
+.searchInput:focus {
+  background-color: #3a3a3a;
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
-  }
-
-  .logo {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .searchContainer {
-    width: 100%;
-  }
-
-  .searchInput {
-    width: 100%;
-    font-size: 1rem;
-  }
-
-  .searchIcon {
-    right: 15px;
-  }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 101;
 }

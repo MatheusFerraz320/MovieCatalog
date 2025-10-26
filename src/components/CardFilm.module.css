@@ -6,7 +6,17 @@ html, body {
   background-color: #0d0d0d;
 }
 
+.pageLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f46565;
+}
 
+.mainContent {
+  margin-left: 250px; /* mesma largura da sidebar */
+  padding: 2rem;
+  flex: 1;
+}
 
 .container {
   flex: 1;

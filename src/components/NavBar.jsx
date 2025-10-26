@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import styles from './NavBar.module.css';
 
-function NavBar({ onSearch }) {
+function Sidebar({ onSearch }) {
   const [searchInput, setSearchInput] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const delayDebounce = setTimeout(() => {
@@ -29,9 +30,12 @@ function NavBar({ onSearch }) {
   };
 
   return (
-    <header className={styles.navbar}>
-      <h1 className={styles.logo}>🎬 Movie Explorer</h1>
-      <div className={styles.searchContainer}>
+    <>
+      <button className={styles.menuButton} onClick={() => setIsOpen(true)}>☰</button>
+
+      <div className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
+        <button className={styles.closeButton} onClick={() => setIsOpen(false)}>✖</button>
+        <h1 className={styles.logo}>🎬 Movie Explorer</h1>
         <input
           type="text"
           placeholder="Search movies..."
@@ -39,10 +43,11 @@ function NavBar({ onSearch }) {
           onChange={(e) => setSearchInput(e.target.value)}
           className={styles.searchInput}
         />
-        <span className={styles.searchIcon}>🔍</span>
       </div>
-    </header>
+
+      {isOpen && <div className={styles.overlay} onClick={() => setIsOpen(false)} />}
+    </>
   );
 }
 
-export default NavBar;
+export default Sidebar;
