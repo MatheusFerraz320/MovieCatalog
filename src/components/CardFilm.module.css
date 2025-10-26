@@ -1,0 +1,143 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background-color: #0d0d0d;
+}
+
+.pageLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f46565;
+}
+
+.mainContent {
+  margin-left: 250px; /* mesma largura da sidebar */
+  padding: 2rem;
+  flex: 1;
+}
+
+.container {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ffffffbf;
+}
+
+.grid {
+  min-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card {
+  width: 160px;
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.4);
+}
+
+
+.poster {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #333;
+}
+
+.titleCard {
+  padding: 0.75rem;
+  font-size: 1rem;
+  text-align: center;
+  color: #f5f5dc;
+}
+
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow-x: hidden;
+}
+
+.modalContent {
+  background-color: #1c1c1c;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: #eaeaea;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #ffd700;
+  cursor: pointer;
+}
+
+
+.modalImage {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+
+@media (max-width: 600px) {
+  .modalContent {
+    padding: 1rem;
+    max-width: 95%;
+  }
+
+  .fechar {
+    top: 5px;
+    right: 10px;
+    font-size: 1.2rem;
+  }
+
+  .card {
+    width: 80%;
+  }
+
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
